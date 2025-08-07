@@ -1,25 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace BehPatterns.Observer2
 {
     public class NewsPublisher
     {
-        private readonly List<string> _news = new List<string>();
         public event Action<string> NewsArrived;
 
         public void AddNews(string news)
         {
-            _news.Add(news);
+            // Обработка новости...
+
             NewsArrived?.Invoke(news);
         }
     }
 
-    public class Person : IDisposable
+    public class Subscriber : IDisposable
     {
         private readonly NewsPublisher _newsPublisher;
 
-        public Person(NewsPublisher newsPublisher)
+        public Subscriber(NewsPublisher newsPublisher)
         {
             _newsPublisher = newsPublisher;
             _newsPublisher.NewsArrived += HandleNews;
@@ -30,9 +29,9 @@ namespace BehPatterns.Observer2
             _newsPublisher.NewsArrived -= HandleNews;
         }
 
-        public void HandleNews(string news)
+        private void HandleNews(string news)
         {
-            Console.WriteLine($"Пришла новость {news}");
+            Console.WriteLine($"Пришла новость: {news}");
         }
     }
 }

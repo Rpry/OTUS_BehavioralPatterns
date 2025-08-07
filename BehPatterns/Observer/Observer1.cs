@@ -5,12 +5,12 @@ namespace BehPatterns.Observer1
 {
     public class NewsPublisher
     {
-        private readonly List<string> _news = new List<string>();
         private readonly List<ISubscriber> _subscribers = new List<ISubscriber>();
 
         public void AddNews(string news)
         {
-            _news.Add(news);
+            // Обработка новости...
+            
             foreach(ISubscriber subscriber in _subscribers)
             {
                 subscriber.HandleNews(news);
@@ -33,11 +33,11 @@ namespace BehPatterns.Observer1
         public void HandleNews(string news);
     }
 
-    public class Person : ISubscriber, IDisposable
+    public class Subscriber : ISubscriber, IDisposable
     {
         private readonly NewsPublisher _newsPublisher;
 
-        public Person(NewsPublisher newsPublisher)
+        public Subscriber(NewsPublisher newsPublisher)
         {
             _newsPublisher = newsPublisher;
             _newsPublisher.SubscribeMe(this);
@@ -50,7 +50,7 @@ namespace BehPatterns.Observer1
 
         public void HandleNews(string news)
         {
-            Console.WriteLine($"Пришла новость {news}");
+            Console.WriteLine($"Пришла новость: {news}");
         }
     }
 }

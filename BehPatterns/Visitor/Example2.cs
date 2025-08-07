@@ -4,34 +4,20 @@ namespace BehPatterns.Visitor2
 {
     public interface IBase
     {
-        public void Method();
-    }
-    
-    public interface IVisited
-    {
         public void Action(IActionVisitor actionVisitor);
     }
+
     
-    public class DerivedClass1: IBase, IVisited
+    public class DerivedClass1: IBase
     {
-        public void Method()
-        {
-            //делаем действие A
-        }
-        
         public void Action(IActionVisitor actionVisitor)
         {
             actionVisitor.Action(this);
         }
     }
     
-    public class DerivedClass2: IBase, IVisited
+    public class DerivedClass2: IBase
     {
-        public void Method()
-        {
-            //делаем действие B
-        }
-        
         public void Action(IActionVisitor actionVisitor)
         {
             actionVisitor.Action(this);
@@ -48,13 +34,13 @@ namespace BehPatterns.Visitor2
     {
         public void Action(DerivedClass1 derivedClass)
         {
-            // Делает действие Х образом
+            // Делает действие образом X
             Console.WriteLine($"Action для DerivedClass1 способом Х");
         }
 
         public void Action(DerivedClass2 derivedClass)
         {
-            // Делает действие Х образом
+            // Делает действие образом X
             Console.WriteLine($"Action для DerivedClass2 способом Х");
         }
     }
@@ -63,13 +49,13 @@ namespace BehPatterns.Visitor2
     {
         public void Action(DerivedClass1 derivedClass)
         {
-            // Делает действие Y образом
+            // Делает действие образом Y
             Console.WriteLine($"Action для DerivedClass1 способом Y");
         }
 
         public void Action(DerivedClass2 derivedClass)
         {
-            // Делает действие Y образом
+            // Делает действие образом Y
             Console.WriteLine($"Action для DerivedClass2 способом Y");
         }
     }

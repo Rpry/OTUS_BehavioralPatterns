@@ -31,19 +31,17 @@ namespace BehPatterns
             obj2.Action(new ActionVisitorX());
             obj2.Action(new ActionVisitorY());
             */
-            
             /*
             var newsPublisher = new Observer1.NewsPublisher();
-            newsPublisher.AddNews("Первая новость!");
-            var person = new Observer1.Person(newsPublisher);
-            newsPublisher.AddNews("Вторая новость!");
-            */
+            newsPublisher.AddNews("Победа на олимпиаде");
+            var subscriber = new Observer1.Subscriber(newsPublisher);
+            newsPublisher.AddNews("Победа на чемпионате мира");
             
-            /*
-            var newsPublisher = new Observer2.NewsPublisher();
-            newsPublisher.AddNews("Первая новость!");
-            var person = new Observer2.Person(newsPublisher);
-            newsPublisher.AddNews("Вторая новость!");
+            
+            var newsPublisher2 = new Observer2.NewsPublisher();
+            newsPublisher2.AddNews("Победа на олимпиаде");
+            var person = new Observer2.Subscriber(newsPublisher2);
+            newsPublisher2.AddNews("Победа на чемпионате мира");
             */
             
             //strategy
@@ -57,12 +55,14 @@ namespace BehPatterns
             //var strategy = new BaseStrategy();
             //WithdrawService service = new WithdrawService(strategy);
             //service.ValidateAmount(100);
-            
             /*
-            Mediator2.Class1 class1 = new Class1();
-            class1.Action();
+            Mediator mediator = new Mediator();
+            Mediator2.Class1 class1 = new Class1(mediator);
+            Mediator2.Class2 class2 = new Class2(mediator);
+            Mediator2.Class3 class3 = new Class3(mediator);
+            class1.Call("2");
+            class2.Call("3");
             */
-            
             /*
             State2.Context context = new Context();
             var state1 = new State2.State1(context);
