@@ -46,7 +46,7 @@ namespace BehPatterns.State2
         
         public void DoB()
         {
-            //делаем действие B способом 1
+            
         }
     }
     

@@ -1,34 +1,43 @@
 namespace BehPatterns.State1
 {
-    public interface IState
+    public enum State
     {
-        public void DoA();
-        public void DoB();
+        StateA,
+        StateB
     }
     
-    public class State1: IState
+    public class Context
     {
+        public State State { get; set; }
+        
         public void DoA()
         {
-            //делаем действие A способом 1
+            if (State == State.StateA)
+            {
+                //делаем действие
+                State = State.StateB;
+            }
+            
+            else if (State == State.StateB)
+            {
+                //делаем действие
+                State = State.StateA;
+            }
         }
         
         public void DoB()
         {
-            //делаем действие B способом 1
-        }
-    }
-    
-    public class State2: IState
-    {
-        public void DoA()
-        {
-            //делаем действие A способом 2
-        }
-        
-        public void DoB()
-        {
-            //делаем действие B способом 2
+            if (State == State.StateA)
+            {
+                //делаем действие
+                State = State.StateA;
+            }
+            
+            else if (State == State.StateB)
+            {
+                //делаем действие
+                State = State.StateB;
+            }
         }
     }
 }

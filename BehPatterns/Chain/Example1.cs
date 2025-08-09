@@ -2,12 +2,12 @@ namespace BehPatterns.Chain1
 {
     public interface IBase
     {
-        public void Method();
+        public void Handle();
     }
     
     public class Handler1: IBase
     {
-        public void Method()
+        public void Handle()
         {
             //делаем действие A
         }
@@ -15,7 +15,7 @@ namespace BehPatterns.Chain1
     
     public class Handler2: IBase
     {
-        public void Method()
+        public void Handle()
         {
             //делаем действие B
         }

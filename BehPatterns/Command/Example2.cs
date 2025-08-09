@@ -67,11 +67,10 @@ namespace BehPatterns.Command2
             Checkbox = new Checkbox();
         }
 
-        public void DoCopy()
+        public void InitializeCopying()
         {
             var command = new Command2.CopyCommand();
             Button.SetCommand(command);
         }
     }
-
 }

@@ -2,6 +2,7 @@ namespace BehPatterns.Visitor1
 {
     public interface IBase
     {
+        public void Action();
     }
     
     public class DerivedClass1: IBase

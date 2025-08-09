@@ -21,8 +21,8 @@ namespace BehPatterns
             class1.Method();
             var class2 = new BehPatterns.TemplateMethod3.DerivedClass2();
             class2.Method();
+                
             */
-            
             /*
             var obj1 = new Visitor2.DerivedClass1();
             obj1.Action(new ActionVisitorX());
@@ -36,8 +36,8 @@ namespace BehPatterns
             newsPublisher.AddNews("Победа на олимпиаде");
             var subscriber = new Observer1.Subscriber(newsPublisher);
             newsPublisher.AddNews("Победа на чемпионате мира");
-            
-            
+            */
+            /*
             var newsPublisher2 = new Observer2.NewsPublisher();
             newsPublisher2.AddNews("Победа на олимпиаде");
             var person = new Observer2.Subscriber(newsPublisher2);
@@ -50,7 +50,6 @@ namespace BehPatterns
             //exemplar.Method();
             //var contextClass = new ContextClass(new Strategy2.DerivedClass1());
             //contextClass.Method();
-            
             
             //var strategy = new BaseStrategy();
             //WithdrawService service = new WithdrawService(strategy);
@@ -80,22 +79,20 @@ namespace BehPatterns
                     context.DoB();
                 }
             }
-            */
-
-            /*
+*/
+          /*  
             var handler1 = new Chain2.Handler1();
             var handler2 = new Chain2.Handler2();
             handler1.SetNext(handler2);
+            
             handler1.Handle();
             */
-           
-            /* 
+           /*
             var editor = new Editor();
-            editor.DoCopy();
+            editor.InitializeCopying();
             editor.Button.Click();
-            */
-           
-            /*
+           */
+            
             MainClass mainClass = new MainClass();
             mainClass.Do();
             Console.WriteLine(mainClass.RollBackedObject.GetState);
@@ -103,7 +100,7 @@ namespace BehPatterns
             Console.WriteLine(mainClass.RollBackedObject.GetState);
             mainClass.UnDo();
             Console.WriteLine(mainClass.RollBackedObject.GetState);
-           */
+           
             Console.ReadKey();
         }
     }

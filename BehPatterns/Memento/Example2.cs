@@ -29,7 +29,7 @@ namespace BehPatterns.Memento2
 
         public void Restore(Memento memento)
         {
-            _data = memento._data;
+            _data = memento.GetState();
         }
 
         public void DoSomeAction()

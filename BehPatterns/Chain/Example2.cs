@@ -1,3 +1,5 @@
+using System;
+
 namespace BehPatterns.Chain2
 {
     public interface IBase
@@ -16,7 +18,7 @@ namespace BehPatterns.Chain2
             _next = next;
         }
 
-        public void Handle()
+        public virtual void Handle()
         {
             if (_next != null)
             {
@@ -27,18 +29,18 @@ namespace BehPatterns.Chain2
 
     public class Handler1: BaseHandler
     {
-        public void Handle()
+        public override void Handle()
         {
-            //делаем действие A
+            Console.WriteLine("делаем действие A");
             base.Handle();
         }
     }
     
     public class Handler2: BaseHandler
     {
-        public void Handle()
+        public override void Handle()
         {
-            //делаем действие B
+            Console.WriteLine("делаем действие B");
             base.Handle();
         }
     }
