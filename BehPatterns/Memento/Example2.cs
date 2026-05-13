@@ -56,8 +56,8 @@ namespace BehPatterns.Memento2
             var memento = RollBackedObject.SaveState();
             if (memento._data != null)
             {
-                Mementoes.Push(memento);    
-            } 
+                Mementoes.Push(memento);
+            }
             RollBackedObject.DoSomeAction();
         }
         

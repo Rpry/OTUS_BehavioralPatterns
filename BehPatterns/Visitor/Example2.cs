@@ -1,12 +1,11 @@
 using System;
 
-namespace BehPatterns.Visitor2
+namespace BehPatterns.Visitor
 {
     public interface IBase
     {
         public void Action(IActionVisitor actionVisitor);
     }
-
     
     public class DerivedClass1: IBase
     {

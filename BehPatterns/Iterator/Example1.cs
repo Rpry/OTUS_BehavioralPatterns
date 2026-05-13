@@ -7,13 +7,15 @@ namespace BehPatterns.Iterator1
     {
         public void Main()
         {
-            IEnumerable<string> collection = new string[2];
+            var collection = new string[2];
             foreach (var obj in collection)
             {
-                Console.WriteLine(obj);   
+                Console.WriteLine(obj); 
             }
         }
-        //List<string> 
+
+        ///private Array
+        //List<string>  df
         //Stack<string>
     }
 }

@@ -7,30 +7,63 @@ using BehPatterns.Mediator2;
 using BehPatterns.Memento2;
 using BehPatterns.State2;
 using BehPatterns.Strategy2;
-using BehPatterns.Visitor2;
+using BehPatterns.Visitor;
+
 using DerivedClass1 = BehPatterns.Strategy1.DerivedClass1;
+using DerivedClass2 = BehPatterns.Visitor.DerivedClass2;
 
 namespace BehPatterns
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            HashSet<string> hashSet = new HashSet<string>();
+
+            #region Template method
+
             /*
             var class1 = new BehPatterns.TemplateMethod3.DerivedClass1();
             class1.Method();
             var class2 = new BehPatterns.TemplateMethod3.DerivedClass2();
             class2.Method();
-                
-            */
+              */              
+
+            #endregion
+
+            #region Visitor 1
+
             /*
-            var obj1 = new Visitor2.DerivedClass1();
-            obj1.Action(new ActionVisitorX());
+            var obj1 = new Visitor.DerivedClass1();
+            //obj1.Action(new ActionVisitorX());
             obj1.Action(new ActionVisitorY());
-            var obj2 = new Visitor2.DerivedClass2();
+            var obj2 = new DerivedClass2();
             obj2.Action(new ActionVisitorX());
             obj2.Action(new ActionVisitorY());
             */
+
+            #endregion
+
+            #region Visitor 2
+
+            // === Visitor Enterprise Example ===
+            var employees = new List<IEmployee>
+            {
+                new FullTimeEmployee("Иван", 100000m, 5),
+                new FullTimeEmployee("Петр", 80000m, 2),
+                new ContractorEmployee("Сидор", 500m, 160),
+                new InternEmployee("Анна", 30000m, "МГУ")
+            };
+
+            var calculator = new SalaryCalculator();
+            calculator.CalculateAll(employees);
+
+            Console.WriteLine();
+
+            #endregion
+
+            #region Observer
+
             /*
             var newsPublisher = new Observer1.NewsPublisher();
             newsPublisher.AddNews("Победа на олимпиаде");
@@ -43,17 +76,11 @@ namespace BehPatterns
             var person = new Observer2.Subscriber(newsPublisher2);
             newsPublisher2.AddNews("Победа на чемпионате мира");
             */
-            
-            //strategy
-            
-            //var exemplar = new DerivedClass1();
-            //exemplar.Method();
-            //var contextClass = new ContextClass(new Strategy2.DerivedClass1());
-            //contextClass.Method();
-            
-            //var strategy = new BaseStrategy();
-            //WithdrawService service = new WithdrawService(strategy);
-            //service.ValidateAmount(100);
+
+            #endregion
+
+            #region Mediator
+
             /*
             Mediator mediator = new Mediator();
             Mediator2.Class1 class1 = new Class1(mediator);
@@ -62,8 +89,26 @@ namespace BehPatterns
             class1.Call("2");
             class2.Call("3");
             */
+
+            #endregion
+
+            #region Strategy
+
+            //var exemplar = new DerivedClass1();
+            //exemplar.Method();
+            //var contextClass = new ContextClass(new Strategy2.DerivedClass1());
+            //contextClass.Method();
+            
+            //var strategy = new BaseStrategy();
+            //WithdrawService service = new WithdrawService(strategy);
+            //service.ValidateAmount(100);
+
+            #endregion
+
+            #region State
+
             /*
-            State2.Context context = new Context();
+            Context context = new Context();
             var state1 = new State2.State1(context);
             context.SetState(state1);
             //context.DoA();
@@ -79,20 +124,35 @@ namespace BehPatterns
                     context.DoB();
                 }
             }
-*/
-          /*  
+            */
+
+            #endregion
+
+            #region Chain of responsibility
+
+            /*
             var handler1 = new Chain2.Handler1();
-            var handler2 = new Chain2.Handler2();
+            var handler2 = new Chain2.Handler2(handler1);
             handler1.SetNext(handler2);
-            
+            var handler3 = new Chain2.Handler2(handler2);
+            handler2.SetNext(handler3);
             handler1.Handle();
             */
-           /*
+
+            #endregion
+
+            #region Command
+
+            /*
             var editor = new Editor();
             editor.InitializeCopying();
             editor.Button.Click();
-           */
-            
+            */
+
+            #endregion
+
+            #region Memento
+
             MainClass mainClass = new MainClass();
             mainClass.Do();
             Console.WriteLine(mainClass.RollBackedObject.GetState);
@@ -100,8 +160,9 @@ namespace BehPatterns
             Console.WriteLine(mainClass.RollBackedObject.GetState);
             mainClass.UnDo();
             Console.WriteLine(mainClass.RollBackedObject.GetState);
-           
             Console.ReadKey();
+
+            #endregion
         }
     }
 }

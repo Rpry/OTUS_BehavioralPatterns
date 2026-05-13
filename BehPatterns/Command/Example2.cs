@@ -14,8 +14,7 @@ namespace BehPatterns.Command2
             Console.WriteLine("Copying...");
         }
     }
-    
-        
+
     public class Button
     {
         private ICommand _command;
