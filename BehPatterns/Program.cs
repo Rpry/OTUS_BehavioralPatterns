@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using BehPatterns.Command2;
+using BehPatterns.Command.Enterprise;
+using BehPatterns.Command.DelegateExample;
 using BehPatterns.Iterator1;
 using BehPatterns.Mediator2;
 using BehPatterns.Memento2;
 using BehPatterns.State2;
 using BehPatterns.Strategy2;
+using BehPatterns.Strategy.Enterprise;
 using BehPatterns.Visitor;
 
 using DerivedClass1 = BehPatterns.Strategy1.DerivedClass1;
@@ -18,8 +21,6 @@ namespace BehPatterns
     {
         private static void Main(string[] args)
         {
-            HashSet<string> hashSet = new HashSet<string>();
-
             #region Template method
 
             /*
@@ -46,7 +47,7 @@ namespace BehPatterns
 
             #region Visitor 2
 
-            // === Visitor Enterprise Example ===
+            /*
             var employees = new List<IEmployee>
             {
                 new FullTimeEmployee("Иван", 100000m, 5),
@@ -54,12 +55,11 @@ namespace BehPatterns
                 new ContractorEmployee("Сидор", 500m, 160),
                 new InternEmployee("Анна", 30000m, "МГУ")
             };
-
+            
             var calculator = new SalaryCalculator();
             calculator.CalculateAll(employees);
-
             Console.WriteLine();
-
+*/
             #endregion
 
             #region Observer
@@ -94,14 +94,18 @@ namespace BehPatterns
 
             #region Strategy
 
-            //var exemplar = new DerivedClass1();
-            //exemplar.Method();
-            //var contextClass = new ContextClass(new Strategy2.DerivedClass1());
-            //contextClass.Method();
-            
-            //var strategy = new BaseStrategy();
-            //WithdrawService service = new WithdrawService(strategy);
-            //service.ValidateAmount(100);
+            //PricingDemo.Run();
+
+            /*
+            var exemplar = new DerivedClass1();
+            exemplar.Method();
+            var contextClass = new ContextClass(new Strategy2.DerivedClass1());
+            contextClass.Method();
+
+            var strategy = new BaseStrategy();
+            WithdrawService service = new WithdrawService(strategy);
+            service.ValidateAmount(100);
+            */
 
             #endregion
 
@@ -132,9 +136,9 @@ namespace BehPatterns
 
             /*
             var handler1 = new Chain2.Handler1();
-            var handler2 = new Chain2.Handler2(handler1);
+            var handler2 = new Chain2.Handler2();
             handler1.SetNext(handler2);
-            var handler3 = new Chain2.Handler2(handler2);
+            var handler3 = new Chain2.Handler2();
             handler2.SetNext(handler3);
             handler1.Handle();
             */
@@ -142,6 +146,10 @@ namespace BehPatterns
             #endregion
 
             #region Command
+
+            
+            //DelegateDemo.Run();
+            ///BankingDemo.Run();
 
             /*
             var editor = new Editor();
@@ -152,7 +160,7 @@ namespace BehPatterns
             #endregion
 
             #region Memento
-
+/*
             MainClass mainClass = new MainClass();
             mainClass.Do();
             Console.WriteLine(mainClass.RollBackedObject.GetState);
@@ -161,7 +169,7 @@ namespace BehPatterns
             mainClass.UnDo();
             Console.WriteLine(mainClass.RollBackedObject.GetState);
             Console.ReadKey();
-
+*/
             #endregion
         }
     }

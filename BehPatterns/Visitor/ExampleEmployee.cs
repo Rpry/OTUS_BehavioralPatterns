@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace BehPatterns.Visitor
 {
-    // === Элементы (Employee - сотрудники) ===
-
     public interface IEmployee
     {
         string Name { get; }
