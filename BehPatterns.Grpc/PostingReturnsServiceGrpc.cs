@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BehPatterns.Grpc.Domain;
+
+using BehPatterns.Grpc.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow;
+using BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements;
+using BehPatterns.Grpc.DomainServices.GetPostingReturnOperations;
+using BehPatterns.Grpc.DomainServices.GetPostingReturnState;
 using BehPatterns.Grpc.Mediator;
 using Grpc.Core;
 

@@ -11,11 +11,10 @@ namespace BehPatterns.Grpc.Mediator
         public void Register<TRequest, TResponse>(IRequestHandler<TRequest, TResponse> handler)
             where TRequest : IRequest<TResponse>
         {
-            _handlers[typeof(TRequest)] = async req =>
-            {
-                var result = await handler.Handle((TRequest)req);
-                return result;
-            };
+            // Лямбда захватывает handler (замыкание), чтобы делегат мог вызвать его
+            // позже из Send, когда Register уже отработал. Приведение object → TRequest
+            // безопасно: ключом служит typeof(TRequest), и Send ищет по тому же GetType().
+            _handlers[typeof(TRequest)] = async req => await handler.Handle((TRequest)req);
         }
 
         public async Task<TResponse> Send<TResponse>(IRequest<TResponse> request)

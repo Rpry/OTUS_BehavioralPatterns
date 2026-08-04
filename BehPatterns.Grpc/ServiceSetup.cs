@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BehPatterns.Grpc.Domain;
+
 using BehPatterns.Grpc.DomainServices;
+using BehPatterns.Grpc.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow;
+using BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements;
+using BehPatterns.Grpc.DomainServices.GetPostingReturnOperations;
+using BehPatterns.Grpc.DomainServices.GetPostingReturnState;
 using BehPatterns.Grpc.Mediator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,7 +38,8 @@ namespace BehPatterns.Grpc
             builder.WebHost.ConfigureKestrel(o => o.ConfigureEndpointDefaults(lo => lo.Protocols = HttpProtocols.Http2));
 
             var app = builder.Build();
-            app.MapGrpcService<PostingReturnsServiceGrpc0>();
+            app.MapGrpcService<PostingReturnsServiceGrpc>();
+            //app.MapGrpcService<PostingReturnsServiceGrpc0>();
             app.MapGrpcReflectionService();
 
             await app.RunAsync();

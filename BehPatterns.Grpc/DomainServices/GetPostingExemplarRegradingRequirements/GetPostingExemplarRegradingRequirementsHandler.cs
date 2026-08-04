@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BehPatterns.Grpc.Domain;
+
 using BehPatterns.Grpc.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices
+namespace BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements
 {
     public class GetPostingExemplarRegradingRequirementsHandler : IRequestHandler<GetPostingExemplarRegradingRequirementsQuery, List<ExemplarRegradingRequirement>>
     {
