@@ -1,25 +1,35 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BehPatterns.Grpc.Domain;
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Grpc.DomainServices;
 using Grpc.Core;
 
 using Proto = BehPatterns.Grpc.PostingReturns;
 
 namespace BehPatterns.Grpc
 {
-    public class PostingReturnsServiceGrpc : Proto.PostingReturnsService.PostingReturnsServiceBase
+    public class PostingReturnsServiceGrpc0 : Proto.PostingReturnsService.PostingReturnsServiceBase
     {
-        private readonly IMediator _mediator;
+        private readonly GetPostingReturnStateHandler _getStateHandler;
+        private readonly GetPostingReturnOperationsHandler _getOperationsHandler;
+        private readonly GetPostingExemplarRegradingRequirementsHandler _getRegradingRequirementsHandler;
+        private readonly CheckCanPostingExemplarsMoveToReverseFlowHandler _checkReverseFlowHandler;
 
-        public PostingReturnsServiceGrpc(IMediator mediator)
+        public PostingReturnsServiceGrpc0(
+            GetPostingReturnStateHandler getStateHandler,
+            GetPostingReturnOperationsHandler getOperationsHandler,
+            GetPostingExemplarRegradingRequirementsHandler getRegradingRequirementsHandler,
+            CheckCanPostingExemplarsMoveToReverseFlowHandler checkReverseFlowHandler)
         {
-            _mediator = mediator;
+            _getStateHandler = getStateHandler;
+            _getOperationsHandler = getOperationsHandler;
+            _getRegradingRequirementsHandler = getRegradingRequirementsHandler;
+            _checkReverseFlowHandler = checkReverseFlowHandler;
         }
 
         public override async Task<Proto.PostingReturnStateMessage> GetPostingReturnState(Proto.GetPostingReturnStateQuery request, ServerCallContext context)
         {
-            var result = await _mediator.Send(new GetPostingReturnStateQuery { PostingReturnId = request.PostingReturnId });
+            var result = await _getStateHandler.Handle(new GetPostingReturnStateQuery { PostingReturnId = request.PostingReturnId });
             return new Proto.PostingReturnStateMessage
             {
                 PostingReturnId = result.PostingReturnId,
@@ -31,7 +41,7 @@ namespace BehPatterns.Grpc
 
         public override async Task<Proto.GetPostingReturnOperationsResponse> GetPostingReturnOperations(Proto.GetPostingReturnOperationsQuery request, ServerCallContext context)
         {
-            var result = await _mediator.Send(new GetPostingReturnOperationsQuery { PostingReturnId = request.PostingReturnId });
+            var result = await _getOperationsHandler.Handle(new GetPostingReturnOperationsQuery { PostingReturnId = request.PostingReturnId });
             var response = new Proto.GetPostingReturnOperationsResponse();
             foreach (var op in result)
             {
@@ -49,7 +59,7 @@ namespace BehPatterns.Grpc
 
         public override async Task<Proto.GetPostingExemplarRegradingRequirementsResponse> GetPostingExemplarRegradingRequirements(Proto.GetPostingExemplarRegradingRequirementsQuery request, ServerCallContext context)
         {
-            var result = await _mediator.Send(new GetPostingExemplarRegradingRequirementsQuery { PostingReturnId = request.PostingReturnId });
+            var result = await _getRegradingRequirementsHandler.Handle(new GetPostingExemplarRegradingRequirementsQuery { PostingReturnId = request.PostingReturnId });
             var response = new Proto.GetPostingExemplarRegradingRequirementsResponse();
             foreach (var req in result)
             {
@@ -66,7 +76,7 @@ namespace BehPatterns.Grpc
 
         public override async Task<Proto.ExemplarsReverseFlowCheckMessage> CheckCanPostingExemplarsMoveToReverseFlow(Proto.CheckCanPostingExemplarsMoveToReverseFlowQuery request, ServerCallContext context)
         {
-            var result = await _mediator.Send(new CheckCanPostingExemplarsMoveToReverseFlowQuery
+            var result = await _checkReverseFlowHandler.Handle(new CheckCanPostingExemplarsMoveToReverseFlowQuery
             {
                 PostingReturnId = request.PostingReturnId,
                 ExemplarIds = new List<string>(request.ExemplarIds)

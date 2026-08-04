@@ -18,21 +18,23 @@ namespace BehPatterns.Grpc
             builder.Services.AddGrpc();
             builder.Services.AddGrpcReflection();
 
-            // Composition root: медиатор и обработчики.
             var mediator = new MyMediator();
             mediator.Register<GetPostingReturnStateQuery, PostingReturnState>(new GetPostingReturnStateHandler());
             mediator.Register<GetPostingReturnOperationsQuery, List<PostingReturnOperation>>(new GetPostingReturnOperationsHandler());
             mediator.Register<GetPostingExemplarRegradingRequirementsQuery, List<ExemplarRegradingRequirement>>(new GetPostingExemplarRegradingRequirementsHandler());
             mediator.Register<CheckCanPostingExemplarsMoveToReverseFlowQuery, ExemplarsReverseFlowCheck>(new CheckCanPostingExemplarsMoveToReverseFlowHandler());
+
             builder.Services.AddSingleton<IMediator>(mediator);
+            builder.Services.AddSingleton<GetPostingReturnStateHandler>();
+            builder.Services.AddSingleton<GetPostingReturnOperationsHandler>();
+            builder.Services.AddSingleton<GetPostingExemplarRegradingRequirementsHandler>();
+            builder.Services.AddSingleton<CheckCanPostingExemplarsMoveToReverseFlowHandler>();
 
             builder.WebHost.UseUrls("http://127.0.0.1:5126");
-            // HTTP/2 без TLS на cleartext-эндпоинте.
             builder.WebHost.ConfigureKestrel(o => o.ConfigureEndpointDefaults(lo => lo.Protocols = HttpProtocols.Http2));
 
             var app = builder.Build();
-            app.MapGrpcService<PostingReturnsServiceGrpc>();
-            app.MapGet("/", () => "gRPC PostingReturnsService работает. Используйте gRPC-клиент / Postman.");
+            app.MapGrpcService<PostingReturnsServiceGrpc0>();
             app.MapGrpcReflectionService();
 
             await app.RunAsync();
