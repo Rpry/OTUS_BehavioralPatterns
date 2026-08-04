@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option csharp_namespace = "BehPatterns.Grpc.PostingReturns";
+
+package ozon.patterns.posting_returns;
+
+// Сообщение-ответ: состояние возврата поставки.
+message PostingReturnStateMessage {
+  string posting_return_id = 1;
+  string status = 2;
+  string reason = 3;
+  string created_at = 4;
+}
+
+// Запись об операции в рамках возврата поставки.
+message PostingReturnOperationMessage {
+  string operation_id = 1;
+  string posting_return_id = 2;
+  string type = 3;
+  string status = 4;
+  string performed_at = 5;
+}
+
+// Требование к перемаркировке экземпляра.
+message ExemplarRegradingRequirementMessage {
+  string exemplar_id = 1;
+  string current_sku = 2;
+  string required_sku = 3;
+  string reason = 4;
+}
+
+// Результат проверки возможности перевода экземпляров в обратный поток.
+message ExemplarsReverseFlowCheckMessage {
+  bool can_move = 1;
+  repeated string blocking_reasons = 2;
+}
+
+// === Аргументы методов (имя метода + "Query") ===
+
+message GetPostingReturnStateQuery {
+  string posting_return_id = 1;
+}
+
+message GetPostingReturnOperationsQuery {
+  string posting_return_id = 1;
+}
+
+message GetPostingExemplarRegradingRequirementsQuery {
+  string posting_return_id = 1;
+}
+
+message CheckCanPostingExemplarsMoveToReverseFlowQuery {
+  string posting_return_id = 1;
+  repeated string exemplar_ids = 2;
+}
+
+// Контракт сервиса. gRPC-контроллер делегирует каждый вызов медиатору:
+// аргумент *Query упаковывается как IRequest и отправляется в IMediator.
+service PostingReturnsService {
+  rpc GetPostingReturnState (GetPostingReturnStateQuery) returns (PostingReturnStateMessage);
+  rpc GetPostingReturnOperations (GetPostingReturnOperationsQuery) returns (GetPostingReturnOperationsResponse);
+  rpc GetPostingExemplarRegradingRequirements (GetPostingExemplarRegradingRequirementsQuery) returns (GetPostingExemplarRegradingRequirementsResponse);
+  rpc CheckCanPostingExemplarsMoveToReverseFlow (CheckCanPostingExemplarsMoveToReverseFlowQuery) returns (ExemplarsReverseFlowCheckMessage);
+}
+
+// Ответы-списки (rpc возвращает одно сообщение, поэтому списки оборачиваем).
+message GetPostingReturnOperationsResponse {
+  repeated PostingReturnOperationMessage operations = 1;
+}
+
+message GetPostingExemplarRegradingRequirementsResponse {
+  repeated ExemplarRegradingRequirementMessage requirements = 1;
+}
