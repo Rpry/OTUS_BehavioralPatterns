@@ -1,17 +1,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using BehPatterns.Grpc.DomainServices;
-using BehPatterns.Grpc.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow;
-using BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements;
-using BehPatterns.Grpc.DomainServices.GetPostingReturnOperations;
-using BehPatterns.Grpc.DomainServices.GetPostingReturnState;
+using BehPatterns.Mediator.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow;
+using BehPatterns.Mediator.DomainServices.GetPostingExemplarRegradingRequirements;
+using BehPatterns.Mediator.DomainServices.GetPostingReturnOperations;
+using BehPatterns.Mediator.DomainServices.GetPostingReturnState;
 
 using Grpc.Core;
 
 using Proto = BehPatterns.Grpc.PostingReturns;
 
-namespace BehPatterns.Grpc
+namespace BehPatterns.Mediator
 {
     public class PostingReturnsServiceGrpc0 : Proto.PostingReturnsService.PostingReturnsServiceBase
     {

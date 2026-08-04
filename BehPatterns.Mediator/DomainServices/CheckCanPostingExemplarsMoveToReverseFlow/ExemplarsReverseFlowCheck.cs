@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BehPatterns.Grpc.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow
+namespace BehPatterns.Mediator.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow
 {
     // Результат проверки возможности перевода экземпляров в обратный поток.
     public class ExemplarsReverseFlowCheck

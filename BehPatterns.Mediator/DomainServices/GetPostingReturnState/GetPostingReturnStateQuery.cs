@@ -1,6 +1,6 @@
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices.GetPostingReturnState
+namespace BehPatterns.Mediator.DomainServices.GetPostingReturnState
 {
     // Запросы/команды (IRequest) — сообщения, которыми оперирует медиатор.
     // Имя аргумента = имя метода gRPC-контроллера + "Query".

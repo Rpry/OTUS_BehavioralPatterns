@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices.GetPostingReturnOperations
+namespace BehPatterns.Mediator.DomainServices.GetPostingReturnOperations
 {
     public class GetPostingReturnOperationsQuery : IRequest<List<PostingReturnOperation>>
     {

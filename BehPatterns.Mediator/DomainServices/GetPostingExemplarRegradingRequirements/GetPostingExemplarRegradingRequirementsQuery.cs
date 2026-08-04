@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements
+namespace BehPatterns.Mediator.DomainServices.GetPostingExemplarRegradingRequirements
 {
     public class GetPostingExemplarRegradingRequirementsQuery : IRequest<List<ExemplarRegradingRequirement>>
     {

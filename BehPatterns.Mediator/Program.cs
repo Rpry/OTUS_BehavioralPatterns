@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace BehPatterns.Grpc
+namespace BehPatterns.Mediator
 {
     internal static class Program
     {

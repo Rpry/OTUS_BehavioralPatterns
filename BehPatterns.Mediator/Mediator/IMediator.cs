@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace BehPatterns.Grpc.Mediator
+namespace BehPatterns.Mediator.Mediator
 {
     // Медиатор: отправляет запрос нужному обработчику, не раскрывая его типа отправителю.
     public interface IMediator

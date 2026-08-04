@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
 
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices.GetPostingReturnState
+namespace BehPatterns.Mediator.DomainServices.GetPostingReturnState
 {
     public class GetPostingReturnStateHandler : IRequestHandler<GetPostingReturnStateQuery, PostingReturnState>
     {

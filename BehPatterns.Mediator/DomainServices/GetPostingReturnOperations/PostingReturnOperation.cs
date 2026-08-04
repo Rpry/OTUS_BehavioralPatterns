@@ -1,4 +1,4 @@
-namespace BehPatterns.Grpc.DomainServices.GetPostingReturnOperations
+namespace BehPatterns.Mediator.DomainServices.GetPostingReturnOperations
 {
     // Операция в рамках возврата поставки.
     public class PostingReturnOperation

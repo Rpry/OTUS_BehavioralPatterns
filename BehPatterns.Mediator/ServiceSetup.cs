@@ -1,18 +1,18 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using BehPatterns.Grpc.DomainServices;
-using BehPatterns.Grpc.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow;
-using BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements;
-using BehPatterns.Grpc.DomainServices.GetPostingReturnOperations;
-using BehPatterns.Grpc.DomainServices.GetPostingReturnState;
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow;
+using BehPatterns.Mediator.DomainServices.GetPostingExemplarRegradingRequirements;
+using BehPatterns.Mediator.DomainServices.GetPostingReturnOperations;
+using BehPatterns.Mediator.DomainServices.GetPostingReturnState;
+using BehPatterns.Mediator.Mediator;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BehPatterns.Grpc
+namespace BehPatterns.Mediator
 {
     public static class ServiceSetup
     {

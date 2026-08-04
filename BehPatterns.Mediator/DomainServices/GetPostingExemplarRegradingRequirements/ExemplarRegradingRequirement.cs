@@ -1,4 +1,4 @@
-namespace BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements
+namespace BehPatterns.Mediator.DomainServices.GetPostingExemplarRegradingRequirements
 {
     // Требование к перемаркировке экземпляра.
     public class ExemplarRegradingRequirement

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices.GetPostingReturnOperations
+namespace BehPatterns.Mediator.DomainServices.GetPostingReturnOperations
 {
     public class GetPostingReturnOperationsHandler : IRequestHandler<GetPostingReturnOperationsQuery, List<PostingReturnOperation>>
     {

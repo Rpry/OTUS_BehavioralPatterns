@@ -1,4 +1,4 @@
-namespace BehPatterns.Grpc.DomainServices.GetPostingReturnState
+namespace BehPatterns.Mediator.DomainServices.GetPostingReturnState
 {
     // Состояние возврата поставки.
     public class PostingReturnState

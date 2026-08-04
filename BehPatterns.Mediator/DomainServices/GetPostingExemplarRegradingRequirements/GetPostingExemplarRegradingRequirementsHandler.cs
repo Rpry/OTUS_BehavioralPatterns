@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices.GetPostingExemplarRegradingRequirements
+namespace BehPatterns.Mediator.DomainServices.GetPostingExemplarRegradingRequirements
 {
     public class GetPostingExemplarRegradingRequirementsHandler : IRequestHandler<GetPostingExemplarRegradingRequirementsQuery, List<ExemplarRegradingRequirement>>
     {

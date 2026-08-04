@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace BehPatterns.Grpc.Mediator
+namespace BehPatterns.Mediator.Mediator
 {
     public interface IRequestHandler<in TRequest, TResponse>
         where TRequest : IRequest<TResponse>

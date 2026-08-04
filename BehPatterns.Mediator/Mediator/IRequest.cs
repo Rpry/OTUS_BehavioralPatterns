@@ -1,4 +1,4 @@
-namespace BehPatterns.Grpc.Mediator
+namespace BehPatterns.Mediator.Mediator
 {
     public interface IRequest<TResponse>
     {

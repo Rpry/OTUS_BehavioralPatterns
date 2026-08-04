@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehPatterns", "BehPatterns\BehPatterns.csproj", "{47413CDB-E49E-4B94-AC7A-4F01606828C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehPatterns.Grpc", "BehPatterns.Grpc\BehPatterns.Grpc.csproj", "{E4A01019-5036-440E-94FC-402688D5C94B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehPatterns.Mediator", "BehPatterns.Mediator\BehPatterns.Mediator.csproj", "{E4A01019-5036-440E-94FC-402688D5C94B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

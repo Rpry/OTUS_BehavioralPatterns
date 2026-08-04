@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using BehPatterns.Grpc.Mediator;
+using BehPatterns.Mediator.Mediator;
 
-namespace BehPatterns.Grpc.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow
+namespace BehPatterns.Mediator.DomainServices.CheckCanPostingExemplarsMoveToReverseFlow
 {
     public class CheckCanPostingExemplarsMoveToReverseFlowQuery : IRequest<ExemplarsReverseFlowCheck>
     {
