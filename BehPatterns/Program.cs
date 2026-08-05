@@ -6,7 +6,8 @@ using BehPatterns.Command.Enterprise;
 using BehPatterns.Command.DelegateExample;
 using BehPatterns.Iterator1;
 using BehPatterns.Mediator2;
-using BehPatterns.Memento2;
+using BehPatterns.Memento.DocumentStateSaving;
+using BehPatterns.Memento.DocumentStateSavingWithMemento;
 using BehPatterns.State2;
 using BehPatterns.Strategy2;
 using BehPatterns.Strategy.Enterprise;
@@ -170,6 +171,11 @@ namespace BehPatterns
             Console.WriteLine(mainClass.RollBackedObject.GetState);
             Console.ReadKey();
 */
+
+            
+            //Demo.Run();
+            MementoDemo.Run();
+
             #endregion
         }
     }
