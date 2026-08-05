@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using BehPatterns.Command;
-using BehPatterns.Command.Enterprise;
+using BehPatterns.Command.BankAccountOperations;
+using BehPatterns.Command.BankAccountOperationsCommand;
 using BehPatterns.Iterator1;
 using BehPatterns.Mediator2;
 using BehPatterns.Memento.DocumentStateSaving;
@@ -13,7 +13,7 @@ using BehPatterns.Strategy2;
 using BehPatterns.Strategy.Enterprise;
 using BehPatterns.Visitor;
 
-using DelegateDemo = BehPatterns.Command.Demo;
+using DelegateDemo = BehPatterns.Command.BankAccountOperations.Demo;
 using DerivedClass1 = BehPatterns.Strategy1.DerivedClass1;
 using DerivedClass2 = BehPatterns.Visitor.DerivedClass2;
 
@@ -149,15 +149,9 @@ namespace BehPatterns
 
             #region Command
 
-            DirectDemo.Run();
-            DelegateDemo.Run();
+            //DirectDemo.Run();
+            //DelegateDemo.Run();
             BankingDemo.Run();
-
-            /*
-            var editor = new Editor();
-            editor.InitializeCopying();
-            editor.Button.Click();
-            */
 
             #endregion
 
