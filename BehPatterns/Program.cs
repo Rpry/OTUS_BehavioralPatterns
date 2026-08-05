@@ -10,6 +10,7 @@ using BehPatterns.Memento.DocumentStateSaving;
 using BehPatterns.Memento.DocumentStateSavingWithMemento;
 using BehPatterns.State2;
 using BehPatterns.Strategy;
+using BehPatterns.Strategy.Discount;
 using BehPatterns.Strategy.DiscountStrategy;
 using BehPatterns.Strategy2;
 using BehPatterns.Visitor;
@@ -97,7 +98,9 @@ namespace BehPatterns
 
             #region Strategy
 
-            PricingDemo.Run();
+            DiscountDemo.Run();
+            DiscountingDemoStrategy.Run();
+            
 
             /*
             var exemplar = new DerivedClass1();

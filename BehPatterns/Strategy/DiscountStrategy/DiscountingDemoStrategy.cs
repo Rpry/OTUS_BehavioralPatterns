@@ -6,7 +6,7 @@ namespace BehPatterns.Strategy.DiscountStrategy
 {
     // Клиентский код: демонстрирует расчёт цены с разными стратегиями
     // и смену стратегии в рантайме.
-    public class PricingDemo
+    public class DiscountingDemoStrategy
     {
         public static void Run()
         {
