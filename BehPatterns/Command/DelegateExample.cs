@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BehPatterns.Command.DelegateExample
+namespace BehPatterns.Command
 {
     public class BankAccount
     {
@@ -41,13 +41,21 @@ namespace BehPatterns.Command.DelegateExample
         }
     }
 
-    public class DelegateDemo
+    public class DirectDemo
     {
         public static void Run()
         {
             var account = new BankAccount("40702810000000000001", 10000m);
+            account.Deposit(5000m);
+            account.Withdraw(2000m);
+        }
+    }
 
-            Console.WriteLine("=== Вариант 1: Простой delegate (без Undo) ===");
+    public class Demo
+    {
+        public static void Run()
+        {
+            var account = new BankAccount("40702810000000000001", 10000m);
             var delegateManager = new CommandManagerDelegate();
             delegateManager.ExecuteAction(() => account.Deposit(5000m));
             delegateManager.ExecuteAction(() => account.Withdraw(2000m));

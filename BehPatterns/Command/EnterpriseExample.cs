@@ -139,7 +139,6 @@ namespace BehPatterns.Command.Enterprise
         }
     }
 
-    // === Invoker (History с поддержкой Undo/Redo) ===
 
     public class CommandManager
     {

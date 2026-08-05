@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using BehPatterns.Command2;
+
+using BehPatterns.Command;
 using BehPatterns.Command.Enterprise;
-using BehPatterns.Command.DelegateExample;
 using BehPatterns.Iterator1;
 using BehPatterns.Mediator2;
 using BehPatterns.Memento.DocumentStateSaving;
@@ -13,6 +13,7 @@ using BehPatterns.Strategy2;
 using BehPatterns.Strategy.Enterprise;
 using BehPatterns.Visitor;
 
+using DelegateDemo = BehPatterns.Command.Demo;
 using DerivedClass1 = BehPatterns.Strategy1.DerivedClass1;
 using DerivedClass2 = BehPatterns.Visitor.DerivedClass2;
 
@@ -148,9 +149,9 @@ namespace BehPatterns
 
             #region Command
 
-            
-            //DelegateDemo.Run();
-            ///BankingDemo.Run();
+            DirectDemo.Run();
+            DelegateDemo.Run();
+            BankingDemo.Run();
 
             /*
             var editor = new Editor();
@@ -161,19 +162,8 @@ namespace BehPatterns
             #endregion
 
             #region Memento
-/*
-            MainClass mainClass = new MainClass();
-            mainClass.Do();
-            Console.WriteLine(mainClass.RollBackedObject.GetState);
-            mainClass.Do();
-            Console.WriteLine(mainClass.RollBackedObject.GetState);
-            mainClass.UnDo();
-            Console.WriteLine(mainClass.RollBackedObject.GetState);
-            Console.ReadKey();
-*/
-
             
-            Demo.Run();
+            //Demo.Run();
             //MementoDemo.Run();
 
             #endregion
