@@ -9,8 +9,9 @@ using BehPatterns.Mediator2;
 using BehPatterns.Memento.DocumentStateSaving;
 using BehPatterns.Memento.DocumentStateSavingWithMemento;
 using BehPatterns.State2;
+using BehPatterns.Strategy;
+using BehPatterns.Strategy.DiscountStrategy;
 using BehPatterns.Strategy2;
-using BehPatterns.Strategy.Enterprise;
 using BehPatterns.Visitor;
 
 using DelegateDemo = BehPatterns.Command.BankAccountOperations.Demo;
@@ -96,7 +97,7 @@ namespace BehPatterns
 
             #region Strategy
 
-            //PricingDemo.Run();
+            PricingDemo.Run();
 
             /*
             var exemplar = new DerivedClass1();
