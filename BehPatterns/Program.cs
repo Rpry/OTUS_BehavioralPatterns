@@ -173,8 +173,8 @@ namespace BehPatterns
 */
 
             
-            //Demo.Run();
-            MementoDemo.Run();
+            Demo.Run();
+            //MementoDemo.Run();
 
             #endregion
         }

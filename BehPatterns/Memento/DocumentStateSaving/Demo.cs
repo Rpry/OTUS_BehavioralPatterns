@@ -9,19 +9,13 @@ namespace BehPatterns.Memento.DocumentStateSaving
             var doc = new Document();
             var history = new History();
 
-            history.Push(doc);
             doc.SetText("Первая правка");
             Print(doc);
             history.Push(doc);
+
             doc.SetText("Вторая правка");
             Print(doc);
-            history.Push(doc);
-            doc.SetText("И третья правка");
-            Print(doc);
-
-            Console.WriteLine("\n--- Undo ---");
-            history.Undo(doc);
-            Print(doc);
+            
             Console.WriteLine("\n--- Undo ---");
             history.Undo(doc);
             Print(doc);

@@ -14,9 +14,8 @@ namespace BehPatterns.Memento.DocumentStateSavingWithMemento
             Print(doc);
 
             doc.SetText("Вторая правка");
-            history.Push(doc.SaveSnapshot());
             Print(doc);
-
+            
             Undo(doc, history);
             Print(doc);
         }
